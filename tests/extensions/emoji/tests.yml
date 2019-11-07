@@ -1,13 +1,5 @@
 __default__: {}
 
-emoji1 (awesome):
-  css:
-    - https://cdn.jsdelivr.net/npm/emojione@4.5.0/extras/css/emojione-awesome.css
-  extensions:
-    pymdownx.emoji:
-      emoji_generator: !!python/name:pymdownx.emoji.to_awesome
-      emoji_index: !!python/name:pymdownx.emoji.emojione
-
 emoji1 (entities):
   extensions:
     pymdownx.emoji:
@@ -35,14 +27,14 @@ emoji1 (no title):
 
 emoji1 (png):
   css:
-    - https://cdn.jsdelivr.net/npm/emojione@4.5.0/extras/css/emojione.min.css
+    - https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/css/emojione.min.css
   extensions:
     pymdownx.emoji:
       emoji_index: !!python/name:pymdownx.emoji.emojione
 
 emoji1 (png sprite):
   css:
-    - https://cdn.jsdelivr.net/emojione/assets/4.5/sprites/emojione-sprite-64.css
+    - https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/sprites/emojione.sprites.css
   extensions:
     pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_png_sprite

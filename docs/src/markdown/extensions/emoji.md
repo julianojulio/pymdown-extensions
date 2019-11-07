@@ -114,7 +114,7 @@ By default, Emoji provides three indexes: `emojione`, `gemoji`, and `twemoji`.  
 
 `pymdownx.emoji.emojione`
 : 
-    EmojiOne was rebranded as JoyPixels and is no longer permissible enough to be used. The release used here is for 4.5.0 which is the last usable, free version of EmojiOne. Users are still required to comply with acknowledgments. JoyPixels 5.0 graphical assets will not be supported moving forward as the license is too restrictive, tough the index of their friendly names is supported under the MIT license and is used to generate friendly, short names for Twemoji.
+    EmojiOne was rebranded as JoyPixels and is no longer permissible enough to be used. The release used here is for 2.2.7 which is the last usable, truly free version of EmojiOne. Users are still required to comply with acknowledgments. JoyPixels 5.0 graphical assets will not be supported moving forward as the license is too restrictive, tough the index of their friendly names is supported under the MIT license and is used to generate friendly, short names for Twemoji and EmojiOne.
 
     You can always find out what tag it was built with by doing the following:
 
@@ -123,13 +123,6 @@ By default, Emoji provides three indexes: `emojione`, `gemoji`, and `twemoji`.  
     >>> e1db.version
     '4.5.0'
     ```
-
-    !!! warning "EmojiOne Update"
-        EmojiOne 3.0+ releases dropped fee SVG support. PNG support can still be obtained via CDNs.
-
-        While EmojiOne only offers 3.0+ vector graphics to paying customers now, you can still get SVG support. By default, we still use 2.2.7 SVGs, but you won't get images for emoji added after 2.2.7. If using SVG sprites, you will have to [download][emojione-sprites-svg] the sprite SVG.
-
-        Twemoji actually offers SVG support, so if you really need (or prefer) SVG support, you can try Twemoji.
 
 `pymdownx.emoji.gemoji`
 : 
@@ -154,10 +147,10 @@ You can select a generator to use by passing in one of the functions below via t
 
 `pymdownx.emoji.to_png`
 : 
-    This is a general purpose generator which provides EmojiOne, GitHub, and Twemoji CDN path(s) out of the box. Depending on the index you've chosen, you the appropriate CDN will be provided.  If this ever gets out of date, a new CDN can be passed in via `image_path` and/or `non_standard_image_path`. EmojiOne actually has multiple PNGs sizes of 32, 64, and 128, but the default CDN path is the one for size 64: `https://cdn.jsdelivr.net/emojione/assets/4.5/png/64/`. You can change it for a larger or smaller PNG size by updating the size in the URL and passing the new URL in through `image_path`. The PNG output form is as follows:
+    This is a general purpose generator which provides EmojiOne, GitHub, and Twemoji CDN path(s) out of the box. Depending on the index you've chosen, you the appropriate CDN will be provided.  If this ever gets out of date, a new CDN can be passed in via `image_path` and/or `non_standard_image_path`. EmojiOne actually has multiple PNGs sizes of 32, 64, and 128, but the default CDN path is the one for size 64: `https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/64/`. You can change it for a larger or smaller PNG size by updating the size in the URL and passing the new URL in through `image_path`. The PNG output form is as follows:
 
     ```html
-    <img alt="😄" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/4.5/png/64/1f604.png" title=":smile:" />
+    <img alt="😄" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/64/1f604.png" title=":smile:" />
     ```
 
     **Generator Specific Options**
@@ -189,7 +182,7 @@ You can select a generator to use by passing in one of the functions below via t
 : 
     This generator was written to support PNG sprite output for EmojiOne.  It is expected that this will be used in conjunction with the the official EmojiOne CSS.  You can include the CSS from the CDN in your document. The CSS comes in three sizes: 32, 64, 128. Make sure to set the correct size in the options to generate the appropriate classes.
 
-    Example CDN for the 4.5 version with 64px PNGs: `https://cdn.jsdelivr.net/emojione/assets/4.5/sprites/emojione-sprite-64.min.css`.
+    Example CDN for the 4.5 version with 64px PNGs: `https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/sprites/emojione.sprites.css`.
 
     `to_png_sprite` outputs the emoji as a span in the form below.  The CSS will apply the appropriate mapping in the sprite PNG to the background image of the span.
 
@@ -219,21 +212,6 @@ You can select a generator to use by passing in one of the functions below via t
     ------------ | ------ | ---------------------- | -----------
     `classes`    | string | Name of the index used | Class(es) to apply to the `svg` element where the classes are inserted as "class" in the following template: `#!py3 '%(class)s-%(unicode)s'`.
     `image_path` | string | `#!py3 ''`              | Path to the SVG sprites.
-
-`pymdownx.emoji.to_awesome`
-: 
-    This generator is another EmojiOne specific output called EmojiOne Awesome. It aims to give a font-awesome like interface for EmojiOne.  The `emojione-awesome` CDN currently follows this format: https://cdn.jsdelivr.net/npm/emojione@4.5.0/extras/css/emojione-awesome.css, so update accordingly.  The output format is:
-
-    ```html
-    <i class="e1a-smile"></i>
-    ```
-
-    **Generator Specific Options**
-
-    Option       | Type       | Default      | Description
-    ------------ | ---------- | ------------ | -----------
-    `classes`    | string     | `#!py3 'e1a'` | Class(es) to apply to the element where the classes are inserted as "class" in the following template: `#!py3 '%(class)s-%(shortname)s'`.
-    `attributes` | dictionary | `#!py3 {}`    | A dictionary containing tag attributes as key value string pairs. The dictionary keys are the attribute names and dictionary values are the attribute values.
 
 `pymdownx.emoji.to_alt`
 : 
