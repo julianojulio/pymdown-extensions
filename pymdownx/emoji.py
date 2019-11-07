@@ -325,7 +325,7 @@ class EmojiExtension(Extension):
         self.config = {
             'emoji_index': [
                 twemoji,
-                "Function that returns the desired emoji index. - Default: 'pymdownx.emoji.twemoji'"
+                "Function that returns the desired emoji index. - Default: 'pymdownx.emoji.emojione'"
             ],
             'emoji_generator': [
                 to_png,

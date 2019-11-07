@@ -6,31 +6,26 @@ emoji1 (entities):
       emoji_generator: !!python/name:pymdownx.emoji.to_alt
       alt: html_entity
       remove_variation_selector: True
-      emoji_index: !!python/name:pymdownx.emoji.emojione
 
 emoji1 (escaped):
   extensions:
     pymdownx.emoji:
-      emoji_index: !!python/name:pymdownx.emoji.emojione
 
 emoji1 (long title):
   extensions:
     pymdownx.emoji:
       title: long
-      emoji_index: !!python/name:pymdownx.emoji.emojione
 
 emoji1 (no title):
   extensions:
     pymdownx.emoji:
       title: none
-      emoji_index: !!python/name:pymdownx.emoji.emojione
 
 emoji1 (png):
   css:
     - https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/css/emojione.min.css
   extensions:
     pymdownx.emoji:
-      emoji_index: !!python/name:pymdownx.emoji.emojione
 
 emoji1 (png sprite):
   css:
@@ -38,7 +33,6 @@ emoji1 (png sprite):
   extensions:
     pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_png_sprite
-      emoji_index: !!python/name:pymdownx.emoji.emojione
 
 emoji1 (svg):
   css:
@@ -46,13 +40,11 @@ emoji1 (svg):
   extensions:
     pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
-      emoji_index: !!python/name:pymdownx.emoji.emojione
 
 emoji1 (svg sprite):
   extensions:
     pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_svg_sprite
-      emoji_index: !!python/name:pymdownx.emoji.emojione
 
 gemoji (entities):
   extensions:
@@ -77,10 +69,12 @@ twemoji (entities):
     pymdownx.emoji:
       emoji_generator: !!python/name:pymdownx.emoji.to_alt
       alt: html_entity
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
 
 twemoji (png):
   extensions:
     pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
       alt: short
       options:
         attributes:
@@ -91,6 +85,7 @@ twemoji (png):
 twemoji (svg):
   extensions:
     pymdownx.emoji:
+      emoji_index: !!python/name:pymdownx.emoji.twemoji
       emoji_generator: !!python/name:pymdownx.emoji.to_svg
       alt: short
       options:

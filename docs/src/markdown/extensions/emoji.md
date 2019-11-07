@@ -18,11 +18,9 @@ There are a number of emoji short name conventions that people may be aware of. 
 
 - [Gemoji][gemoji] (<img align="absmiddle" alt=":smile:" class="gemoji" height="20px" src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png" title=":smile:" width="20px" /> <img align="absmiddle" alt=":heart:" class="gemoji" height="20px" src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png" title=":heart:" width="20px" /> <img align="absmiddle" alt=":+1:" class="gemoji" height="20px" src="https://github.githubassets.com/images/icons/emoji/unicode/1f44d.png" title=":+1:" width="20px" />): Gemoji is GitHub's open source emoji solution. It contains a lot of common emoji and a couple special, non Unicode emoji (like Gemoji's `:octocat:` <img align="absmiddle" alt=":octocat:" class="gemoji" height="20px" src="https://github.githubassets.com/images/icons/emoji/octocat.png" title=":octocat:" width="20px" />). If you are a GitHub user, you are probably familiar with some of the short names associated with it. Their associated CDN contains the emoji in 75x75 PNG format.
 
-- [EmojiOne][emojione] (<img align="absmiddle" alt=":smile:" class="emojione" height="20px" src="https://cdn.jsdelivr.net/emojione/assets/4.5/png/64/1f604.png" title=":smile:" width="20px" /> <img align="absmiddle" alt=":heart:" class="emojione" height="20px" src="https://cdn.jsdelivr.net/emojione/assets/4.5/png/64/2764.png" title=":heart:" width="20px" /> <img align="absmiddle" alt=":thumbsup:" class="emojione" height="20px" src="https://cdn.jsdelivr.net/emojione/assets/4.5/png/64/1f44d.png" title=":thumbsup:" width="20px" />): EmojiOne is a high quality emoji set with support for gender and skin tone modifiers. Their free emoji set includes PNGs in sizes of 32x32, 64x64, and 128x128 which are all available via a CDN.
+- [EmojiOne][emojione] (<img align="absmiddle" alt=":smile:" class="emojione" height="20px" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/64/1f604.png" title=":smile:" width="20px" /> <img align="absmiddle" alt=":heart:" class="emojione" height="20px" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/64/2764.png" title=":heart:" width="20px" /> <img align="absmiddle" alt=":thumbsup:" class="emojione" height="20px" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/64/1f44d.png" title=":thumbsup:" width="20px" />): EmojiOne is a high quality emoji set with support for gender and skin tone modifiers. Their free emoji set includes PNGs in sizes of 32x32, 64x64, and 128x128 which are all available via a CDN.
 
-    The older EmojiOne (version 2.2.7), can be used if desired. It contains less emoji, offers SVG images, and a less restrictive license as well. Emoji supports EmojiOne's newest short name mapping regardless of which CDN the user chooses.
-
-    4.5.0 is the last supported version of EmojiOne as they've rebranded with the name JoyPixels and now have an even more restrictive license for their graphical assets than they did under the 3+ and 4+ series. Their short name list is still used for Twemoji as that portion is available under the MIT license via their toolkit repo @JoyPixels/emoji-toolkit.
+    The older EmojiOne (version 2.2.7), is what is used by default. It is the last truly free version. EmojiOne has rebranded with the name JoyPixels and now has an even more restrictive license for their graphical assets. Their latest short name list is still used for Twemoji as that portion is available under the MIT license via their toolkit repo @JoyPixels/emoji-toolkit.
 
 - [Twemoji][twemoji] (<img align="absmiddle" alt=":smile:" class="twemoji" height="20px" src="https://twemoji.maxcdn.com/v/latest/72x72/1f604.png" title=":smile:" width="20px" /> <img align="absmiddle" alt=":heart:" class="twemoji" height="20px" src="https://twemoji.maxcdn.com/v/latest/72x72/2764.png" title=":heart:" width="20px" /> <img align="absmiddle" alt=":thumbsup:" class="twemoji" height="20px" src="https://twemoji.maxcdn.com/v/latest/72x72/1f44d.png" title=":thumbsup:" width="20px" />): Twemoji is Twitter's open source emoji set which also covers a great many emoji with skin tones and gender modifiers. The hosted CDN provides 72x72 PNG emoji or SVG emoji.
 
@@ -31,9 +29,13 @@ There are a number of emoji short name conventions that people may be aware of. 
 !!! warning "Emoji Image Licensing"
     PyMdown Extensions has no affiliation with EmojiOne, Gemoji, or Twemoji.  The indexes generated from their sources are covered under their respective licensing.  When using their images or CSS, please see their licensing terms to ensure proper usage and attributions.
 
-    EmojiOne: https://www.emojione.com/developers/free-license\
-    Gemoji: https://github.com/github/gemoji/blob/master/LICENSE\
-    Twemoji: https://github.com/twitter/twemoji/blob/gh-pages/LICENSE-GRAPHICS
+    - EmojiOne 2.2.7:
+        - https://github.com/joypixels/emoji-toolkit#joypixels-version-2
+        - http://creativecommons.org/licenses/by/4.0/
+    - Gemoji:
+        - https://github.com/github/gemoji/blob/master/LICENSE
+    - Twemoji:
+        - https://github.com/twitter/twemoji/blob/gh-pages/LICENSE-GRAPHICS
 
 All short name indexes that Emoji uses are generated from EmojiOne's or Gemoji's latest official source tag -- Twemoji uses JoyPixels' index as the Twemoji repository does not ship with a short name index. The indexes contain the emoji names, short names, values, etc.; everything needed to insert Unicode emoji characters or specially crafted HTML elements.
 
@@ -50,9 +52,21 @@ By default, Emoji provides three indexes: `emojione`, `gemoji`, and `twemoji`.  
 !!! tip
     If you are attempting to configure these options in a YAML based configuration (like in [MkDocs][mkdocs]), please see the [FAQ](../faq.md#function-references-in-yaml) to see how to specify function references in YAML.
 
+`pymdownx.emoji.emojione`
+: 
+    This is the default function that is used. EmojiOne was rebranded as JoyPixels and is no longer permissible enough to be used. The release used here is for 2.2.7 which is the last usable, truly free version of EmojiOne. Users are still required to comply with acknowledgments. JoyPixels 3.0+ graphical assets will not be supported moving forward as the license is too restrictive, tough the latest index of their friendly names is supported under the MIT license and is used to generate friendly, short names for Twemoji.
+
+    You can always find out what tag it was built with by doing the following:
+
+    ```pycon3
+    >>> import pymdownx.emoji1_db as e1db
+    >>> e1db.version
+    'v2.2.7'
+    ```
+
 `pymdownx.emoji.twemoji`
 : 
-    This is the default function that is used. This function provides an index of the latest Twemoji supported emoji (at the time of release).  The associated short names are currently borrowed from JoyPixels' index found in their @JoyPixels/emoji-toolkit repo. JoyPixels short name index is available under the MIT license and is used as Twemoji does not provide its own list of short names.
+    This function provides an index of the latest Twemoji supported emoji (at the time of release).  The associated short names are currently borrowed from JoyPixels' index found in their @JoyPixels/emoji-toolkit repo. JoyPixels short name index is available under the MIT license and is used as Twemoji does not provide its own list of short names.
 
     There are a few emoji that are currently Twemoji specific, two of which are likely to always be as they are not part of the official emoji spec. The short names are listed below.
 
@@ -110,18 +124,6 @@ By default, Emoji provides three indexes: `emojione`, `gemoji`, and `twemoji`.  
     'v12.1.2'
     >>> twdb.index_version
     '5.0.4'
-    ```
-
-`pymdownx.emoji.emojione`
-: 
-    EmojiOne was rebranded as JoyPixels and is no longer permissible enough to be used. The release used here is for 2.2.7 which is the last usable, truly free version of EmojiOne. Users are still required to comply with acknowledgments. JoyPixels 5.0 graphical assets will not be supported moving forward as the license is too restrictive, tough the index of their friendly names is supported under the MIT license and is used to generate friendly, short names for Twemoji and EmojiOne.
-
-    You can always find out what tag it was built with by doing the following:
-
-    ```pycon3
-    >>> import pymdownx.emoji1_db as e1db
-    >>> e1db.version
-    '4.5.0'
     ```
 
 `pymdownx.emoji.gemoji`
@@ -182,7 +184,7 @@ You can select a generator to use by passing in one of the functions below via t
 : 
     This generator was written to support PNG sprite output for EmojiOne.  It is expected that this will be used in conjunction with the the official EmojiOne CSS.  You can include the CSS from the CDN in your document. The CSS comes in three sizes: 32, 64, 128. Make sure to set the correct size in the options to generate the appropriate classes.
 
-    Example CDN for the 4.5 version with 64px PNGs: `https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/sprites/emojione.sprites.css`.
+    Example CDN for the 2.2.7 version with 64px PNGs: `https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/sprites/emojione.sprites.css`.
 
     `to_png_sprite` outputs the emoji as a span in the form below.  The CSS will apply the appropriate mapping in the sprite PNG to the background image of the span.
 
@@ -340,7 +342,7 @@ The Emoji extension might at times be behind on having indexes built from the la
 
 Option                      | Type       | Default              | Description
 --------------------------- | ---------- | -------------------- | -----------
-`emoji_index`               | function   | `twemoji` index     | A function that returns the index to use when parsing `:short_name:` syntax. See [Default Emoji Indexes](#default-emoji-indexes) to see the provided indexes.
+`emoji_index`               | function   | `emojione` index     | A function that returns the index to use when parsing `:short_name:` syntax. See [Default Emoji Indexes](#default-emoji-indexes) to see the provided indexes.
 `emoji_generator`           | function   | `to_png` generator   | A function that takes the emoji info and constructs the desired emoji output. See [Default Emoji Generators](#default-emoji-generators) to see the provided generators.
 `title`                     | string     | `#!py3thon 'short'`   | Specifies the title format that is fed into the emoji generator function.  Can either be `long` which is the long description of the emoji, `short` which is the short name (`:short:`), or `none` which will simply pass `None`.
 `alt`                       | string     | `#!py3thon 'unicode'` | Specifies the format for the alt value that is passed to the emoji generator function. If `alt` is set to `short`, the short name will be passed to the generator.  If `alt` is set to `unicode` the Unicode characters are passed to the generator.  Lastly, if `alt` is set to `html_entity`, the Unicode characters are passed encoded as HTML entities.
